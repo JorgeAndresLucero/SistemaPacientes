@@ -28,6 +28,7 @@ public class SistemaPacientes
     // Constructores
     // -----------------------------------------------------------------
 
+    
     /**
      * 
      * Constructor que inicializa el RUNT. <br>
