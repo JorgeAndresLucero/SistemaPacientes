@@ -8,13 +8,22 @@ import uniandes.cupi2.sistemapacientes.mundo.SistemaPacientes;
 
 public class InterfazSistemaPacientes extends JFrame{
 	private SistemaPacientes sistemaPacientes;
+	private PanelDatosPaciente panelDatosPaciente;
+	private PanelDatosMuestra panelDatosMuestra;
+	private PanelExtensiones panelExtensiones;
 	
 	InterfazSistemaPacientes(){
 		setTitle("Sistema de Pacientes");
-		setSize(400,450);
+		setSize(700,450);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
+		panelDatosPaciente = new PanelDatosPaciente();
+		panelDatosMuestra = new PanelDatosMuestra();
+		panelExtensiones = new PanelExtensiones();
 		
+		add(panelDatosPaciente, BorderLayout.NORTH);
+		add(panelDatosMuestra, BorderLayout.CENTER);
+		add(panelExtensiones, BorderLayout.SOUTH);
 		
 		//Crea la clase principal 
 		sistemaPacientes = new SistemaPacientes();
