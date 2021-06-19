@@ -82,7 +82,7 @@ public class PanelDatosPaciente extends JPanel implements ActionListener {
 		butEdad.addActionListener(this);
 		txtEdad = new JTextField(10);
 		txtEdad.setEditable(false);
-		txtEdad.setBackground(Color.LIGHT_GRAY);
+		//txtEdad.setBackground(Color.LIGHT_GRAY);
 		txtEdad.setForeground(Color.BLUE);
 		
 		panelInformacion.setLayout(new GridLayout(6, 2));

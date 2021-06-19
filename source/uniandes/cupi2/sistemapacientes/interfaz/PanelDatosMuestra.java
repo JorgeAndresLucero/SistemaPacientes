@@ -62,18 +62,18 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 		txtVacio.setText(" ");
 		
 		txtVolumenMuestra = new JTextField(15);
-		txtVolumenMuestra.setEditable(false);
+		txtVolumenMuestra.setEditable(true);
 		
 		txtVolumenEritrocitos = new JTextField(15);
-		txtVolumenEritrocitos.setEditable(false);
+		txtVolumenEritrocitos.setEditable(true);
 		txtVolumenEritrocitos.setText(" ");
 		
 		txtConteoLeucocitos = new JTextField(15);
-		txtConteoLeucocitos.setEditable(false);
+		txtConteoLeucocitos.setEditable(true);
 		txtConteoLeucocitos.setText(" ");
 		
 		txtConteoPlaquetas = new JTextField(15);
-		txtConteoPlaquetas.setEditable(false);
+		txtConteoPlaquetas.setEditable(true);
 		
 		txtHematocrito = new JTextField(15);
 		txtHematocrito.setEditable(false);
