@@ -32,6 +32,7 @@ public class InterfazSistemaPacientes extends JFrame{
 		sistemaPacientes = new SistemaPacientes();
 	}
 	
+	
 	public void actualizarInfoPaciente(Paciente pPaciente) {
 		String nombre = pPaciente.darNombre();
 		String apellido = pPaciente.darApellido();
@@ -70,7 +71,7 @@ public class InterfazSistemaPacientes extends JFrame{
 	
 	public void calcularEdad() {
 		String edad = sistemaPacientes.darPacienteActual().darEdad();
-		panelDatosMuestra.mostrarEdad(edad);
+		panelDatosPaciente.mostrarEdad(edad);
 	}
 	
 	public void calcularHematocrito() {

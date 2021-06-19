@@ -18,10 +18,6 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	private JButton butHematocrito;
 	private JButton butLeucocitos;
 	private JCheckBox cbAyunas;
-	private JTextField nombre;
-	private JTextField apellido;
-	private JTextField sexo;
-	private JTextField fechaNacimiento;
 	private JTextField txtVoluMenMuestra;
 	private JTextField txtConteoLeucocitos;
 	private JTextField txtConteoPlaquetas;
@@ -31,16 +27,58 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	private JTextField txtVolumenMuestra;
 	private JTextField txtVolumenEritrocitos;
 	private JTextField txtConteoLeucitos;
-	private JTextField txtEdad;
+	private JLabel labVacio;
+	private JLabel labFTomaMuestra;
+	private JLabel labVolumenMuestra;
+	private JLabel labVolumenEritrocitos;
+	private JLabel labConteoLeucocitos;
+	private JLabel labConteoPlaquetas;
+	
+	
+	
+	
+	
+
 	
 	public PanelDatosMuestra(InterfazSistemaPacientes v) {
 		principal = v;
 		
-		setLayout(new BorderLayout());
+		setLayout(new GridBagLayout());
 		TitledBorder border = BorderFactory.createTitledBorder("Información muestra");
 		border.setTitleColor(Color.BLUE);
 		setBorder(border);
 		
+		JPanel panelMuestra;
+		
+		panelMuestra = new JPanel();
+		add(panelMuestra);
+		
+		// etiquetas
+		labFTomaMuestra = new JLabel("Fecha Toma Muestra: ");
+		labFTomaMuestra = new JLabel("Volumen Muestra: ");
+		labFTomaMuestra = new JLabel("Volumen Eritrocitos: ");
+		labFTomaMuestra = new JLabel("Conteo Leucocitos: ");
+		labFTomaMuestra = new JLabel("Conteo Plaquetas: ");
+		labVacio        = new JLabel("");
+		
+		txtFTomaMuestra= new JTextField(15);
+		txtFTomaMuestra.setEditable(false);
+		txtFTomaMuestra.setForeground(Color.blue);
+		
+		txtVolumenMuestra= new JTextField(15);
+		txtVolumenMuestra.setEditable(false);
+		
+		txtVolumenEritrocitos= new JTextField(15);
+		txtVolumenEritrocitos.setEditable(false);
+		
+		txtConteoLeucitos= new JTextField(15);
+		txtConteoLeucitos.setEditable(false);
+		
+		txtConteoPlaquetas= new JTextField(15);
+		txtConteoPlaquetas.setEditable(false);
+		
+		
+		// configuracion de areas de texto
 		butHematocrito = new JButton();
 		butHematocrito.setText("Calcular Hematocrito");
 		butHematocrito.setActionCommand(CALCULAR_HEMATROCITO);
@@ -54,6 +92,30 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 		cbAyunas = new JCheckBox("Ayunas");
 		cbAyunas.setActionCommand(AYUNAS);
 		cbAyunas.addActionListener(this);
+		
+		panelMuestra.setLayout(new GridLayout(6, 4));
+		panelMuestra.add(labFTomaMuestra);
+		panelMuestra.add(txtFTomaMuestra);
+		panelMuestra.add(labVacio);
+		panelMuestra.add(cbAyunas);
+		panelMuestra.add(labVolumenMuestra);
+		panelMuestra.add(txtVolumenMuestra);
+		panelMuestra.add(labVacio);
+		panelMuestra.add(labVacio);
+		panelMuestra.add(labVolumenEritrocitos);
+		panelMuestra.add(txtVolumenEritrocitos);
+		panelMuestra.add(butHematocrito);
+		panelMuestra.add(labVacio);
+		panelMuestra.add(labConteoLeucocitos);
+		panelMuestra.add(txtConteoLeucitos);
+		panelMuestra.add(butLeucocitos);
+		panelMuestra.add(labVacio);
+		panelMuestra.add(labConteoPlaquetas);
+		panelMuestra.add(txtConteoPlaquetas);
+		panelMuestra.add(labVacio);
+		panelMuestra.add(labVacio);
+		
+		
 	}
 	
 	public String darVolumenMuestra() {
@@ -92,9 +154,7 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 		cbAyunas.setSelected(pEnAyunas);
 	}
 	
-	public void mostrarEdad(String pEdad) {
-		txtEdad.setText(pEdad);
-	}
+	
 	public void limpiarCampos() {
 		txtHematocrito.setText("");
 		txtLeucocitos.setText("");
@@ -108,7 +168,6 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 		txtVolumenEritrocitos.setText(pVolumenEritrocitos + "");
 		txtConteoLeucitos.setText(pConteoLeucocitos + "");
 		txtConteoPlaquetas.setText(pConteoPlaquetas + "");
-		txtEdad.setText(pEdad+"");
 		cbAyunas.setSelected(pEnAyunas);
 		
 	}

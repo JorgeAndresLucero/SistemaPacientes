@@ -105,11 +105,6 @@ public class PanelDatosPaciente extends JPanel implements ActionListener {
 		txtEdad.setText(pEdad);
 	}
 	
-	public String darEdad() {
-		String rta = txtEdad.getText();
-		return rta;
-	}
-	
 	public void limpiarCampos() {
 		txtEdad.setText("");
 	}
