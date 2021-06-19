@@ -120,7 +120,7 @@ public class InterfazSistemaPacientes extends JFrame{
 			sistemaPacientes.darPacienteActual().cambiarVolumenEritrocitos(volumenEritrocitos);
 			
 			double leucocito = sistemaPacientes.darPacienteActual().calcularLeucocitos();
-			leucocito = Math.round(leucocito * 100.0) / (100.0);
+			leucocito = Math.round(leucocito);
 			panelDatosMuestra.mostrarLeucocito(" " + leucocito);
 		} else {
 			JOptionPane.showMessageDialog(this, "Los datos ingresados no son correctos.",

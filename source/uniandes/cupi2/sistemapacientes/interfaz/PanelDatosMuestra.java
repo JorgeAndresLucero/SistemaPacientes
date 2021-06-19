@@ -132,12 +132,12 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	}
 	
 	public String darVolumenMuestra() {
-		String rta = txtVoluMenMuestra.getText();
+		String rta = txtVolumenMuestra.getText();
 		return rta;
 	}
 	
 	public String darVolumenEritrocitos() {
-		String rta = txtVoluMenMuestra.getText();
+		String rta = txtVolumenMuestra.getText();
 		return rta;
 	}
 	
