@@ -123,12 +123,7 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 		panelMuestra.add(labConteoPlaquetas);
 		panelMuestra.add(txtConteoPlaquetas);
 		panelMuestra.add(new JLabel(""));
-		panelMuestra.add(new JLabel(""));
-
-		
-	
-		
-		
+		panelMuestra.add(new JLabel(""));		
 	}
 	
 	public String darVolumenMuestra() {
@@ -137,7 +132,7 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	}
 	
 	public String darVolumenEritrocitos() {
-		String rta = txtVolumenMuestra.getText();
+		String rta = txtVolumenEritrocitos.getText();
 		return rta;
 	}
 	
