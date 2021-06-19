@@ -18,6 +18,20 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	private JButton butHematocrito;
 	private JButton butLeucocitos;
 	private JCheckBox cbAyunas;
+	private JTextField nombre;
+	private JTextField apellido;
+	private JTextField sexo;
+	private JTextField fechaNacimiento;
+	private JTextField txtVoluMenMuestra;
+	private JTextField txtConteoLeucocitos;
+	private JTextField txtConteoPlaquetas;
+	private JTextField txtHematocrito;
+	private JTextField txtLeucocitos;
+	private JTextField txtFTomaMuestra;
+	private JTextField txtVolumenMuestra;
+	private JTextField txtVolumenEritrocitos;
+	private JTextField txtConteoLeucitos;
+	private JTextField txtEdad;
 	
 	public PanelDatosMuestra(InterfazSistemaPacientes v) {
 		principal = v;
@@ -48,7 +62,7 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	}
 	
 	public String darVolumenEritrocitos() {
-		String rta = txtVoluEritrocitos.getText();
+		String rta = txtVoluMenMuestra.getText();
 		return rta;
 	}
 	
@@ -67,7 +81,7 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	}
 	
 	public void mostrarHematocrito(String pHematrocrito) {
-		txtHematrocrito.setText(pHematrocrito + "");
+		txtHematocrito.setText(pHematrocrito + "");
 	}
 	
 	public void mostrarLeucocito(String pLeucocito) {
@@ -78,6 +92,9 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 		cbAyunas.setSelected(pEnAyunas);
 	}
 	
+	public void mostrarEdad(String pEdad) {
+		txtEdad.setText(pEdad);
+	}
 	public void limpiarCampos() {
 		txtHematocrito.setText("");
 		txtLeucocitos.setText("");
@@ -85,13 +102,15 @@ public class PanelDatosMuestra extends JPanel implements ActionListener{
 	
 	public void actualizarCampos(String pFechaMuestra, boolean pEnAyunas,
 								 double pVolumenMuestra, double pVolumenEritrocitos,
-								 int pConteoLeucocitos, int pConteoPlaquetas) {
+								 int pConteoLeucocitos, int pConteoPlaquetas, String pEdad) {
 		txtFTomaMuestra.setText(pFechaMuestra);
 		txtVolumenMuestra.setText(pVolumenMuestra + "");
 		txtVolumenEritrocitos.setText(pVolumenEritrocitos + "");
 		txtConteoLeucitos.setText(pConteoLeucocitos + "");
 		txtConteoPlaquetas.setText(pConteoPlaquetas + "");
+		txtEdad.setText(pEdad+"");
 		cbAyunas.setSelected(pEnAyunas);
+		
 	}
 	
 	public void actionPerformed(ActionEvent evento) {

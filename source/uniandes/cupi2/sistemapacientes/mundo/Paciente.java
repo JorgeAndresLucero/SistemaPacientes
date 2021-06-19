@@ -173,7 +173,7 @@ public class Paciente
      * Retorna la edad del paciente en años.
      * @return Edad del paciente
      */
-    public int darEdad( )
+    public String darEdad( )
     {
         // Obtiene la fecha actual
         Fecha hoy = new Fecha( );
@@ -182,7 +182,7 @@ public class Paciente
         //Calcula la diferencia de años
         int edad = fechaNacimiento.darDiferenciaEnMeses( hoy ) / 12;
 
-        return edad;
+        return Integer.toString(edad);
     }
 
 

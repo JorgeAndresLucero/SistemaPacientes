@@ -28,7 +28,7 @@ public class PanelDatosPaciente extends JPanel implements ActionListener {
 	private JLabel labImagen;
 	
 	private JButton butEdad;
-	
+
 	private JTextField txtEdad;
 	
 
@@ -82,6 +82,8 @@ public class PanelDatosPaciente extends JPanel implements ActionListener {
 		butEdad.addActionListener(this);
 		txtEdad = new JTextField(10);
 		txtEdad.setEditable(false);
+		txtEdad.setBackground(Color.LIGHT_GRAY);
+		txtEdad.setForeground(Color.BLUE);
 		
 		panelInformacion.setLayout(new GridLayout(6, 2));
 		panelInformacion.add(labNombre);
@@ -100,7 +102,7 @@ public class PanelDatosPaciente extends JPanel implements ActionListener {
 	}
 	
 	public void mostrarEdad(String pEdad) {
-		txtEdad.setText(pEdad+"");
+		txtEdad.setText(pEdad);
 	}
 	
 	public String darEdad() {
@@ -113,11 +115,12 @@ public class PanelDatosPaciente extends JPanel implements ActionListener {
 	}
 	
 	public void actualizarCampos(String pNombre, String pApellido,
-								 String pSexo, String pFechaN, String pImagen) {
+								 String pSexo, String pFechaN, String edad, String pImagen) {
 		txtNombre.setText(pNombre);
 		txtApellido.setText(pApellido);
 		txtSexo.setText(pSexo);
 		txtFNacimiento.setText(pFechaN);
+		txtEdad.setText(edad);
 		labImagen.setIcon(new ImageIcon(pImagen));
 		limpiarCampos();
 	}

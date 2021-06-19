@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import uniandes.cupi2.sistemapacientes.mundo.Fecha;
 import uniandes.cupi2.sistemapacientes.mundo.Paciente;
 import uniandes.cupi2.sistemapacientes.mundo.SistemaPacientes;
 
@@ -48,11 +49,12 @@ public class InterfazSistemaPacientes extends JFrame{
 		int conteoLeucocitos = pPaciente.darConteoLeucocitos();
 		int conteoPlaquetas = pPaciente.darConteoPlaquetas();
 		boolean enAyunas = pPaciente.darEnAyunas();
+		String edad = pPaciente.darEdad();
 		
-		panelDatosPaciente.actualizarCampos(nombre, apellido, sexo, dechaN, imagen);
+		panelDatosPaciente.actualizarCampos(nombre, apellido, sexo, dechaN,edad, imagen);
 		panelDatosMuestra.actualizarCampos(fechaTomaMuestra, enAyunas, volumenMuestra,
 										  volumenEritrocitos, conteoLeucocitos,
-										  conteoPlaquetas);
+										  conteoPlaquetas, edad);
 		panelDatosMuestra.limpiarCampos();
 	}
 	
@@ -67,7 +69,8 @@ public class InterfazSistemaPacientes extends JFrame{
 	}
 	
 	public void calcularEdad() {
-		
+		String edad = sistemaPacientes.darPacienteActual().darEdad();
+		panelDatosMuestra.mostrarEdad(edad);
 	}
 	
 	public void calcularHematocrito() {
@@ -91,6 +94,36 @@ public class InterfazSistemaPacientes extends JFrame{
 		} else {
 			JOptionPane.showMessageDialog(this, "Los datos ingresados no son correctos.",
 										  "Calcular Hematrocrito",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	public void calcularLeucocito() {
+		String pVolumenMuestra = panelDatosMuestra.darVolumenMuestra();
+		String pConteoLeucocitos = panelDatosMuestra.darConteoLeucocitos();
+		String pVolumenEritrocitos = panelDatosMuestra.darVolumenEritrocitos();
+		
+		
+		if(pVolumenMuestra.trim().equals("") || pConteoLeucocitos.trim().equals("") || pVolumenEritrocitos.trim().equals("")) {
+			JOptionPane.showMessageDialog(this, "Debe ingresar los datos.", 
+										  "Calcular Leucocito", JOptionPane.ERROR_MESSAGE);
+		} else if(pVolumenMuestra.trim().matches("[0123456789.]*") &&
+				pConteoLeucocitos.trim().matches("[0123456789.]*") &&
+				pVolumenEritrocitos.trim().matches("[0123456789.]*")) {
+			
+			double volumenMuestra = Double.parseDouble(pVolumenMuestra.trim());
+			int conteoLeucocitos = Integer.parseInt(pConteoLeucocitos.trim());
+			double volumenEritrocitos =  Double.parseDouble(pVolumenEritrocitos.trim());
+			
+			sistemaPacientes.darPacienteActual().cambiarVolumenMuestra(volumenMuestra);
+			sistemaPacientes.darPacienteActual().cambiarConteoLeucocitos(conteoLeucocitos);
+			sistemaPacientes.darPacienteActual().cambiarVolumenEritrocitos(volumenEritrocitos);
+			
+			double leucocito = sistemaPacientes.darPacienteActual().calcularLeucocitos();
+			leucocito = Math.round(leucocito * 100.0) / (100.0);
+			panelDatosMuestra.mostrarLeucocito(" " + leucocito);
+		} else {
+			JOptionPane.showMessageDialog(this, "Los datos ingresados no son correctos.",
+										  "Calcular Leucocito",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
